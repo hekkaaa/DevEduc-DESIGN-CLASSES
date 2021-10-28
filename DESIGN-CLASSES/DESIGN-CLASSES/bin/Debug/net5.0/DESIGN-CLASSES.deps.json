@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "DESIGN-CLASSES/1.0.0": {
+        "runtime": {
+          "DESIGN-CLASSES.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DESIGN-CLASSES/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
