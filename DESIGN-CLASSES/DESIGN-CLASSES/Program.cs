@@ -5,8 +5,8 @@ namespace DESIGN_CLASSES
     class Program
     {
         static void Main(string[] args)
-        {   
-            //// Пример для заполненияю
+        {
+            //// Пример для заполнения PASSPORT
             //Passport test = new Passport();
 
             //test.Issued = "УВД ОМСКОЙ ОБЛАСТИ";
@@ -18,7 +18,19 @@ namespace DESIGN_CLASSES
             //test.Gender = "male";
             //Console.WriteLine(test.Print);
 
+
+            //// MONSTER
+            // Пример:
+            Moster test = new Moster(true);
+            Console.WriteLine(test.GetInfo);
+            Console.WriteLine(test.GetAttack(100));
+            test.Wounds(23);
+            IOHelper.Line(50);
+            Console.WriteLine(test.GetInfo);
+            test.Heal();
+            Console.WriteLine(test.GetInfo);
+   
         }
-       
+
     }
 }

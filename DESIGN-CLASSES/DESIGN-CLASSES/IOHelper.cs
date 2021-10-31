@@ -186,7 +186,7 @@ namespace DESIGN_CLASSES
             }
         }
 
-        // вывод надписи в коносль цветом.
+        // вывод надписи в консоль цветом.
         // диапазон 0-14 (https://docs.microsoft.com/ru-ru/dotnet/api/system.consolecolor?view=net-5.0)
         public static void PrintConsoleColor(string message, int color)
         {
