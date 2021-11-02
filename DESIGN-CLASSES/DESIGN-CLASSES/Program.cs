@@ -32,10 +32,6 @@ namespace DESIGN_CLASSES
             //test.Heal();
             //Console.WriteLine(test.GetInfo);
 
-            Moster gg = new Moster();
-            Console.WriteLine(gg.GetInfo);
-
-
         }
 
     }

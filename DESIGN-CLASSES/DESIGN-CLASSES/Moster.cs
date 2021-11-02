@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DESIGN_CLASSES
 {
-    class Moster
+    public class Moster
     {
         Random rnd = new Random();
         string name;
