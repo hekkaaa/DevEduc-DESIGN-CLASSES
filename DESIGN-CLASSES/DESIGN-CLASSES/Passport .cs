@@ -46,7 +46,7 @@ namespace DESIGN_CLASSES
             set
             {
                 string tmp = value.ToString();
-                if (tmp.Length > 4 || tmp.Length < 4) Console.WriteLine("ERROR length serial nuber");
+                if (tmp.Length > 4 || tmp.Length < 4) throw new ArgumentOutOfRangeException("ERROR length serial nuber");
                 else this.serial = value;
             }
         }
@@ -57,7 +57,7 @@ namespace DESIGN_CLASSES
             set
             {
                 string tmp = value.ToString();
-                if (tmp.Length > 6 || tmp.Length < 6) Console.WriteLine("ERROR length serial nuber");
+                if (tmp.Length > 6 || tmp.Length < 6) throw new ArgumentOutOfRangeException("ERROR length serial nuber");
                 else this.number = value;
             }
         }
@@ -69,7 +69,7 @@ namespace DESIGN_CLASSES
             {
                 if (String.IsNullOrWhiteSpace(value))
                 {
-                    Console.WriteLine("No data has been entered");
+                    throw new NullReferenceException("No data has been entered (Строка пустая)");
                 }
                 else this.issued = value;
             }
@@ -81,7 +81,7 @@ namespace DESIGN_CLASSES
             {
                 DateTime BaseRf = new DateTime(1991, 12, 25);
                 if (value >= BaseRf && value <= DateTime.Today) this.issuedDate = value; 
-                else Console.WriteLine("Date or interval entered error");  
+                else throw new ArgumentOutOfRangeException("Date or interval entered error");  
             }
         }
 
@@ -95,7 +95,7 @@ namespace DESIGN_CLASSES
             set
             {
                 if(value == "male".ToLower() || value.ToLower() == "female") this.gender = value;  
-                else Console.WriteLine("Error format gender");
+                else throw new Exception("Error format gender");
             }
         }
 
@@ -106,7 +106,7 @@ namespace DESIGN_CLASSES
             {
                 if (String.IsNullOrWhiteSpace(value))
                 {
-                    Console.WriteLine("No data has been entered");
+                    throw new NullReferenceException("No data has been entered (Строка пустая)");
                 }
                 else this.fio = value;
             }
