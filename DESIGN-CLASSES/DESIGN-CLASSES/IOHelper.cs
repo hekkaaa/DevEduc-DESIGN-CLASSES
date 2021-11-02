@@ -14,15 +14,33 @@ namespace DESIGN_CLASSES
         public static int InputInt(string message)
         {
             Console.Write(message + ": ");
-            return Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                return Convert.ToInt32(Console.ReadLine());
+            }
+            catch(ArgumentException)
+            {
+                throw new ArgumentException();
+            }
+            catch (FormatException)
+            {
+                throw new FormatException("Неверный формат данных. Введен не Int");
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            } 
         }
 
         // Запрос double 
         public static double InputDouble(string message)
         {
             Console.Write(message + ": ");
-            return Convert.ToDouble(Console.ReadLine());
+            try { return Convert.ToDouble(Console.ReadLine()); }
+            catch (FormatException) { throw new FormatException(); }
+            catch (Exception) { throw new Exception(); }
         }
+
         // Запрос string 
         public static string InputString(string message)
         {
@@ -36,7 +54,9 @@ namespace DESIGN_CLASSES
             Console.WriteLine($"{message}: " );
             double a = Convert.ToDouble(Console.ReadLine());
             double b = Convert.ToDouble(Console.ReadLine());
-            return (a, b);
+            try { return (a, b); }
+            catch (FormatException) { throw new FormatException(); }
+            catch (Exception) { throw new Exception(); }
         }
 
         // Рисование горизонтальной линии

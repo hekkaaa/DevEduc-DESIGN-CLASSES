@@ -5,31 +5,58 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DESIGN_CLASSES
-{   
+{
     class Moster
     {
         Random rnd = new Random();
         string name;
-        public enum monsterType { Ghost = 1, Vampir, Undead, Demon };
-        enum monsterType2 { Ghost = 1, Vampir, Undead, Demon };
+        public enum MonsterType { Aspis = 1, Regulus, Vampir, Harpia, Mutant, Dragon, Demon, Ogr };
+        MonsterType monsterType;
         int hp;
         int maxHP;
         int minAttack;
         int maxAttack;
-        string warCry = "ARRRRHG!";
-        string dieCry = "I will be back";
+        string warCry;
+        string dieCry;
 
         // Перегрузки
-        public Moster()
+        public Moster(bool isRandom = false)
         {
-            Name = IOHelper.InputString("Имя Монстра");
-            MaxHP = IOHelper.InputInt("Максимальное количество жизней (до 500)");
-            this.hp = this.maxHP; // Обычно персонажи по умолчанию все здоровы.
-            MinAttack = IOHelper.InputInt("Минимальная атака (1-10)");
-            MaxAttack = IOHelper.InputInt("Максимальная атака (20-100)");
-            WarCry = IOHelper.InputString("Боевой клич");
-            DieCry = IOHelper.InputString("Клич смерти");
-            Console.Clear();
+            if (isRandom == false)
+            {
+                Name = IOHelper.InputString("Имя Монстра");
+                Monst = (MonsterType)IOHelper.InputInt("Номер монстра от 1 до 8 (Aspis, Regulus, Vampir, Harpia, Mutant, Dragon, Demon, Ogr)");
+                MaxHP = IOHelper.InputInt("Максимальное количество жизней (до 500)");
+                this.hp = this.maxHP; // Обычно персонажи по умолчанию все здоровы.
+                MinAttack = IOHelper.InputInt("Минимальная атака (1-10)");
+                MaxAttack = IOHelper.InputInt("Максимальная атака (20-100)");
+                WarCry = IOHelper.InputString("Боевой клич");
+                DieCry = IOHelper.InputString("Клич смерти");
+                Console.Clear();
+            }
+            else
+            {
+                string[] nameRandom = { "Колинет", "Бхолгреарс", "Ролмел", "Алеида", "Укаэриутт","Икеок",
+                "Врацдер", "Браулгон", "Уалбил", "Джортаэрел", "Брицот","Асцелина", "Араиа","Балтхиол",
+                "Грефаитиос", "Линавер", "Иошихара", "Трезрол"};
+
+                string[] voice = {"oerulir uerren lumos","mizol oufama ghealedoi","ganoler lalum iruno",
+                "ota radhoebou uenurrus","nolu li aimur","ARRRRRRRR!","ratrono veonnen uphahro",
+                "niso onon ghiena","ioglaemum uebra airo","mucimin iume ounnin","dhaumumo iapronis au",
+                "ammun luhwala qiphi","omor rigeapan a","licen uephammus oa","lasulan rara sagulen",
+                "eucho uva re","urim linukem annar","remacal rauflamiu oprymmas","reba lorimin lo",
+                "ujuihum earummon ilu","lekeo oudreammen lomymo","numbaran eullum micleunu"};
+
+                this.name = nameRandom[rnd.Next(0, nameRandom.Length - 1)];
+                this.maxHP = rnd.Next(0, 500);
+                this.hp = maxHP; // Обычно персонажи по умолчанию все здоровы.
+                this.minAttack = rnd.Next(1, 11);
+                this.maxAttack = rnd.Next(20, 101);
+                this.warCry = voice[rnd.Next(0, nameRandom.Length - 1)];
+                this.dieCry = voice[rnd.Next(0, nameRandom.Length - 1)];
+                this.monsterType = (MonsterType)rnd.Next(1, 9);
+            }
+
         }
 
         public Moster(string name, int maxHP, int minAttack, int maxAttack, string warCry, string dieCry)
@@ -43,49 +70,38 @@ namespace DESIGN_CLASSES
             this.dieCry = dieCry;
         }
 
-        public Moster(bool pass)
-        {
-            string[] nameRandom = { "Колинет", "Бхолгреарс", "Ролмел", "Алеида", "Укаэриутт","Икеок",
-                "Врацдер", "Браулгон", "Уалбил", "Джортаэрел", "Брицот","Асцелина", "Араиа","Балтхиол",
-                "Грефаитиос", "Линавер", "Иошихара", "Трезрол"};
-
-            string[] voice = {"oerulir uerren lumos","mizol oufama ghealedoi","ganoler lalum iruno",
-                "ota radhoebou uenurrus","nolu li aimur","ARRRRRRRR!","ratrono veonnen uphahro",
-                "niso onon ghiena","ioglaemum uebra airo","mucimin iume ounnin","dhaumumo iapronis au",
-                "ammun luhwala qiphi","omor rigeapan a","licen uephammus oa","lasulan rara sagulen",
-                "eucho uva re","urim linukem annar","remacal rauflamiu oprymmas","reba lorimin lo",
-                "ujuihum earummon ilu","lekeo oudreammen lomymo","numbaran eullum micleunu"};
-
-            this.name = nameRandom[rnd.Next(0, nameRandom.Length - 1)];
-            this.maxHP = rnd.Next(0, 500);
-            this.hp = maxHP; // Обычно персонажи по умолчанию все здоровы.
-            this.minAttack = rnd.Next(0, 11);
-            this.maxAttack = rnd.Next(20, 101);
-            this.warCry = voice[rnd.Next(0, nameRandom.Length - 1)];
-            this.dieCry = voice[rnd.Next(0, nameRandom.Length - 1)];
-        }
-
         // Свойства
         public string Name
         {
             get { return this.name; }
             set
             {
-                if (String.IsNullOrWhiteSpace(value))
-                {
-                    Console.WriteLine("No data has been entered");
-                    this.name = "Unit";
-                }
+                if (String.IsNullOrWhiteSpace(value)) { this.name = "Unit"; }
                 else this.name = value;
             }
         }
 
-        //public enum Monster { get{ return monsterType }}
+        public MonsterType Monst
+        {
+            get { return this.monsterType; }
+            set
+            {
+                if ((int)value > 8 || (int)value < 1)
+                {
+                    this.monsterType = (MonsterType)rnd.Next(1, 9);
+                }
+                else
+                {
+                    this.monsterType = value;
+                }
+            }
+        }
 
         public int HP
         {
             get { return this.hp; }
-            set {
+            set
+            {
                 if (value > this.maxHP || value < 0) Console.WriteLine("HP FULL/LOW");
                 else { this.hp = value; }
             }
@@ -96,7 +112,7 @@ namespace DESIGN_CLASSES
             set
             {
                 if (value > 500) { this.maxHP = 500; }
-                else if(value < 0) { this.maxHP = 1;}
+                else if (value < 0) { this.maxHP = 1; }
                 else { this.maxHP = value; }
             }
         }
@@ -153,7 +169,23 @@ namespace DESIGN_CLASSES
 
         // ******** 2 lvl properties
 
-       public bool IsDie
+        public string TypeText
+        {
+            get
+            {
+                if (this.monsterType == MonsterType.Vampir) { return "Вампир"; }
+                else if (this.monsterType == MonsterType.Regulus) { return "Василиск"; }
+                else if (this.monsterType == MonsterType.Ogr) { return "Огр"; }
+                else if (this.monsterType == MonsterType.Mutant) { return "Мутант"; }
+                else if (this.monsterType == MonsterType.Harpia) { return "Гарпия"; }
+                else if (this.monsterType == MonsterType.Dragon) { return "Дракон"; }
+                else if (this.monsterType == MonsterType.Aspis) { return "Аспид"; }
+                else { return "Демон"; } 
+            }
+        }
+
+   
+        public bool IsDie
         {
             get { if(this.hp <= 0) return true; return false; }
         }
@@ -164,6 +196,7 @@ namespace DESIGN_CLASSES
                 return $"Имя: {this.name}\n" +
                   $"Количество жизней: {this.hp}\n" +
                   $"Максимум HP: {this.maxHP}\n" +
+                  $"Тип монстра: {this.monsterType}\n" +
                   $"Минимальная атака: {this.minAttack}\n" +
                   $"Максимальная атака: {this.maxAttack}\n";
             }

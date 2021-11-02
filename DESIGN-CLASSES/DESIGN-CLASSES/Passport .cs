@@ -11,19 +11,20 @@ namespace DESIGN_CLASSES
         int serial;
         int number;
         string issued;
-        DateTime IssuedDate;
-        bool IsActive;
-        string FIO;
+        DateTime issuedDate;
+        bool isActive;
+        string fio;
         string gender;
 
-        public Passport()
+        public Passport(int serial, int number, string issued, DateTime issuedDate, bool isActive, string fio, string gender)
         {
-            IOHelper.PrintConsoleColor("Форма для заполнения: ", 2);
-            Console.WriteLine($"Серия: {this.serial}\nНомер: {this.number}\n" +
-            $"Дата выдачи: {this.IssuedDate}\n" +
-            $"ФИО: {this.FIO}\nПол: {this.gender}\n" +
-            $"Статус документа: {this.IsActive}");
-            IOHelper.Line(30);
+            this.serial = serial;
+            this.number = number;
+            this.issued = issued;
+            this.issuedDate = issuedDate;
+            this.isActive = isActive;
+            this.fio = fio;
+            this.gender = gender;
         }
 
         // Свойства
@@ -73,18 +74,18 @@ namespace DESIGN_CLASSES
                 else this.issued = value;
             }
         }
-        public DateTime issuedDate
+        public DateTime IssuedDate
         {
-            get { return IssuedDate; }
+            get { return issuedDate; }
             set
             {
                 DateTime BaseRf = new DateTime(1991, 12, 25);
-                if (value >= BaseRf && value <= DateTime.Today) this.IssuedDate = value; 
+                if (value >= BaseRf && value <= DateTime.Today) this.issuedDate = value; 
                 else Console.WriteLine("Date or interval entered error");  
             }
         }
 
-        public bool isActive { get { return IsActive; } set { this.IsActive = value; } }
+        public bool IsActive { get { return isActive; } set { this.isActive = value; } }
         public string Gender
         {
             get 
@@ -98,16 +99,16 @@ namespace DESIGN_CLASSES
             }
         }
 
-        public string fio
+        public string FIO
         {
-            get { return this.FIO; }
+            get { return this.fio; }
             set
             {
                 if (String.IsNullOrWhiteSpace(value))
                 {
                     Console.WriteLine("No data has been entered");
                 }
-                else this.FIO = value;
+                else this.fio = value;
             }
         }
 
