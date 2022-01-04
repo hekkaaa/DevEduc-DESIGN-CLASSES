@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DESIGN_CLASSES.RPG;
+using System;
 
 namespace DESIGN_CLASSES
 {
@@ -6,6 +7,9 @@ namespace DESIGN_CLASSES
     {
         static void Main(string[] args)
         {
+
+            /// ********** ДЗ Unit_2: (базовый дизайн классов - хелпер, OPD-класс, полноценный класс) ****
+
             //// Пример для заполнения PASSPORT
             //Passport test = new Passport(4444,555231,"УВД",new DateTime(1999,12,12),true,"Гоша Мраза","female");
             //Console.WriteLine(test.Print);
@@ -32,6 +36,28 @@ namespace DESIGN_CLASSES
             //test.Heal();
             //Console.WriteLine(test.GetInfo);
 
+            // ********************************
+
+            /// ********** ДЗ Unit_2 (наследование, интерфейсы)
+            //RPG.Monster zombie = new RPG.Monster(8);
+            //RPG.Hero zombieHero = new RPG.Hero(3);
+
+            //Console.WriteLine(zombieHero.rase);
+            //zombieHero._pocket.GetPouch();
+
+            //Item item = new Item();
+            //var te = item.Weapon(1);
+            //zombieHero._pocket.AddPouch(te);
+            //zombieHero._pocket.AddPouch(te);
+            //zombieHero._pocket.AddPouch(te);
+            //zombieHero._pocket.AddPouch(te);
+            //zombieHero._pocket.AddPouch(te);
+
+            //zombieHero._pocket.GetPouch();
+
+            //Console.WriteLine(zombieHero._pocket._intpouch);
+
+            // ********************************
         }
 
     }
