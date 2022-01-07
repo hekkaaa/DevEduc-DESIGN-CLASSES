@@ -1,5 +1,7 @@
-﻿using DESIGN_CLASSES.RPG;
+﻿using DESIGN_CLASSES.Collection;
+using DESIGN_CLASSES.RPG;
 using System;
+using System.Collections.Generic;
 
 namespace DESIGN_CLASSES
 {
@@ -58,6 +60,44 @@ namespace DESIGN_CLASSES
             //Console.WriteLine(zombieHero._pocket._intpouch);
 
             // ********************************
+            //List<string> list = new List<string>();
+            //Console.WriteLine(list.Capacity);
+            //Console.WriteLine(list.Count);
+
+
+            //list.Add("Meow0");
+            //Console.WriteLine(list.Capacity);
+            //Console.WriteLine(list.Count);
+            //list.Clear();
+            //Console.WriteLine(list.Capacity);
+            //Console.WriteLine(list.Count);
+            //Console.WriteLine(list[0]);
+
+
+            MyList<string> list = new MyList<string>();
+            Console.WriteLine(list.Capacity);
+            Console.WriteLine(list.Count);
+            list.Add("a");
+            list.Add("b");
+            list.Add("c");
+            list.Add("d");
+            list.Add("e");
+            list.Add("f");
+            list.Add("g");
+            list.Add("h");
+            list.Add("i");
+            list.Add("dsad");
+            list.Add("k");
+
+            Console.WriteLine(list.Capacity);
+            Console.WriteLine(list.Count);
+            list.Clear();
+            Console.WriteLine(list.Capacity);
+            Console.WriteLine(list.Count);
+            Console.WriteLine(list[0]);
+
+
+
         }
 
     }
