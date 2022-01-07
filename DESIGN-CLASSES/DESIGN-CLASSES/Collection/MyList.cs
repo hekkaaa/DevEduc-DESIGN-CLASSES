@@ -86,8 +86,24 @@ namespace DESIGN_CLASSES.Collection
         }
 
         public void CopyTo(T[] array, int arrayIndex)
-        {
-            throw new NotImplementedException();
+        {   
+            foreach (T item in _massive)
+            {
+                try
+                {   
+                    if(item == null) break;
+                    array[arrayIndex] = item;
+                    arrayIndex++;
+                }
+                catch (ArgumentException ex)
+                {
+                    throw new ArgumentException(ex.Message);
+                }
+                catch(IndexOutOfRangeException ex)
+                {
+                    throw new IndexOutOfRangeException(ex.Message);
+                }
+            }
         }
 
         public IEnumerator<T> GetEnumerator()

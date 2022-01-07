@@ -63,13 +63,23 @@ namespace DESIGN_CLASSES
             //List<string> list = new List<string>();
             //Console.WriteLine(list.Capacity);
             //Console.WriteLine(list.Count);
-
+            //string[] arr = new string[5];
 
             //list.Add("Meow0");
+            //list.Add("Meow1");
+            //list.Add("Meow2");
+            //list.Add("Meow3");
             //Console.WriteLine(list.Capacity);
             //Console.WriteLine(list.Count);
-            //Console.WriteLine(list.Contains("Meow0"));
+            //list.CopyTo(arr, 4);
 
+            //int counts = 0;
+            //foreach (string item in arr)
+            //{
+            //    Console.Write(counts);
+            //    Console.WriteLine(item);
+            //    counts++;
+            //}
 
 
 
@@ -79,9 +89,18 @@ namespace DESIGN_CLASSES
             list.Add("a");
             list.Add("b");
             list.Add("c");
-            Console.WriteLine(list.Contains("c"));
+            string[] arrs = new string[10];
+            list.CopyTo(arrs, -1);
 
-
+            int c = 0;
+            foreach (string s in arrs)
+            {
+                Console.Write(c);
+                Console.WriteLine(s);
+                c++;
+            }
+            Console.WriteLine(arrs[7]);
+          
 
         }
 
