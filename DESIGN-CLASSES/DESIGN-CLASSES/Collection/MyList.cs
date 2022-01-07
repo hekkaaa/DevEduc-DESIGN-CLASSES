@@ -112,8 +112,15 @@ namespace DESIGN_CLASSES.Collection
         }
 
         public int IndexOf(T item)
-        {
-            throw new NotImplementedException();
+        {   
+            int count = 0;
+            foreach (T item2 in _massive)
+            {
+                if (item2 == null) continue;
+                if (item2.Equals(item) == true) return count;
+                count++;
+            }
+            return -1;
         }
 
         public void Insert(int index, T item)

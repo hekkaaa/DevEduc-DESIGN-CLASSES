@@ -71,16 +71,9 @@ namespace DESIGN_CLASSES
             //list.Add("Meow3");
             //Console.WriteLine(list.Capacity);
             //Console.WriteLine(list.Count);
-            //list.CopyTo(arr, 4);
-
-            //int counts = 0;
-            //foreach (string item in arr)
-            //{
-            //    Console.Write(counts);
-            //    Console.WriteLine(item);
-            //    counts++;
-            //}
-
+            //Console.WriteLine("-------");
+            //var t = list.IndexOf("Meow21sda");
+            //Console.WriteLine(t);
 
 
             MyList<string> list = new MyList<string>();
@@ -89,18 +82,12 @@ namespace DESIGN_CLASSES
             list.Add("a");
             list.Add("b");
             list.Add("c");
-            string[] arrs = new string[10];
-            list.CopyTo(arrs, -1);
+            Console.WriteLine(list.Capacity);
+            Console.WriteLine(list.Count);
+            Console.WriteLine("--------------");
+            var t = list.IndexOf("bas");
+            Console.WriteLine(t);
 
-            int c = 0;
-            foreach (string s in arrs)
-            {
-                Console.Write(c);
-                Console.WriteLine(s);
-                c++;
-            }
-            Console.WriteLine(arrs[7]);
-          
 
         }
 
