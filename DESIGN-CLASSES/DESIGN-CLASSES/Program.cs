@@ -68,10 +68,9 @@ namespace DESIGN_CLASSES
             //list.Add("Meow0");
             //Console.WriteLine(list.Capacity);
             //Console.WriteLine(list.Count);
-            //list.Clear();
-            //Console.WriteLine(list.Capacity);
-            //Console.WriteLine(list.Count);
-            //Console.WriteLine(list[0]);
+            //Console.WriteLine(list.Contains("Meow0"));
+
+
 
 
             MyList<string> list = new MyList<string>();
@@ -80,21 +79,7 @@ namespace DESIGN_CLASSES
             list.Add("a");
             list.Add("b");
             list.Add("c");
-            list.Add("d");
-            list.Add("e");
-            list.Add("f");
-            list.Add("g");
-            list.Add("h");
-            list.Add("i");
-            list.Add("dsad");
-            list.Add("k");
-
-            Console.WriteLine(list.Capacity);
-            Console.WriteLine(list.Count);
-            list.Clear();
-            Console.WriteLine(list.Capacity);
-            Console.WriteLine(list.Count);
-            Console.WriteLine(list[0]);
+            Console.WriteLine(list.Contains("c"));
 
 
 

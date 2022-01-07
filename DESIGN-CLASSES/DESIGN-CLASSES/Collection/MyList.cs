@@ -42,8 +42,6 @@ namespace DESIGN_CLASSES.Collection
                 _massive[index] = value; 
             
             }
-
-
         }
         public int Count { get { return _count; } } // Свойство для подсчета длинны MyList
         public int Capacity { get { return _capacity; } }
@@ -79,7 +77,12 @@ namespace DESIGN_CLASSES.Collection
 
         public bool Contains(T item)
         {
-            throw new NotImplementedException();
+            foreach(T item2 in _massive)
+            {
+                if(item2 == null) continue;
+                if(item2.Equals(item) == true) return true;
+            }
+            return false;
         }
 
         public void CopyTo(T[] array, int arrayIndex)
