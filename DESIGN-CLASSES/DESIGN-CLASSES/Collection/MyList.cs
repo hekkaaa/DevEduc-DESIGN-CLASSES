@@ -108,7 +108,7 @@ namespace DESIGN_CLASSES.Collection
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return (IEnumerator<T>)this;
         }
 
         public int IndexOf(T item)
@@ -125,22 +125,57 @@ namespace DESIGN_CLASSES.Collection
 
         public void Insert(int index, T item)
         {
-            throw new NotImplementedException();
+            if(index > _count || item == null || index < 0) throw new ArgumentNullException();
+
+            _massive[index] = item;
         }
 
         public bool Remove(T item)
         {
-            throw new NotImplementedException();
+            int i = 0;
+            bool flag = false;
+            T[] tmp = new T[_massive.Length];
+
+            foreach (T item2 in _massive)
+            {
+                if (item2 == null) continue;
+                if (item2.Equals(item) == false)
+                {
+                    tmp[i] = item2;
+                    i++;
+                }
+                else if (item2.Equals(item) == true && flag == false)
+                {
+                    flag = true;
+                    _count--;
+                }
+                else
+                {
+                    tmp[i] = item2;
+                    i++;
+                }
+            }
+            
+            tmp.CopyTo(_massive, 0);
+            if(flag == true) return true;
+            else return false;
         }
 
         public void RemoveAt(int index)
         {
-            throw new NotImplementedException();
+            int i = 0;
+            T[] tmp = new T[_massive.Length];
+            foreach(T item2 in _massive)
+            {
+                if(i == index) { _count--; index = -1; }  // просто убираем индекс
+                else { tmp[i] = item2; i++; }
+            }
+            tmp.CopyTo(_massive, 0);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return (IEnumerator)GetEnumerator();
         }
     }
 }

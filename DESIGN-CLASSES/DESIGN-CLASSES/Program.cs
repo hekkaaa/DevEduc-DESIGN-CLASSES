@@ -2,6 +2,7 @@
 using DESIGN_CLASSES.RPG;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DESIGN_CLASSES
 {
@@ -72,21 +73,38 @@ namespace DESIGN_CLASSES
             //Console.WriteLine(list.Capacity);
             //Console.WriteLine(list.Count);
             //Console.WriteLine("-------");
-            //var t = list.IndexOf("Meow21sda");
-            //Console.WriteLine(t);
-
+            //list.Remove("Meow3");
+            //Console.WriteLine(list.Capacity);
+            //Console.WriteLine(list.Count);
 
             MyList<string> list = new MyList<string>();
             Console.WriteLine(list.Capacity);
             Console.WriteLine(list.Count);
             list.Add("a");
-            list.Add("b");
+            list.Add("s");
             list.Add("c");
+            list.Add("d");
+            list.Add("e");
+            list.Add("ds");
+            list.Add("g");
             Console.WriteLine(list.Capacity);
             Console.WriteLine(list.Count);
-            Console.WriteLine("--------------");
-            var t = list.IndexOf("bas");
-            Console.WriteLine(t);
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+
+
+            //string[] numbers = { "mew", "meow1", "meow2", "meow3", "meow4" };
+            //string numToRemove = "meow1";
+            //numbers = numbers.Where(val => val != numToRemove).ToArray();
+
+            //foreach (string i in numbers)
+            //{
+            //    Console.WriteLine(i);   
+            //}
+            //Console.WriteLine(numbers.Length);
+
 
 
         }
